@@ -24,7 +24,16 @@ const CreateVideoButton: React.FC = () => {
 
   return (
     <div>
+      <p>Video Title</p>
+      <input type='text' />
+
+      <p>Video Description</p>
+      <textarea />
+
+      <p>Upload the Video</p>
       <input type='file' onChange={handleFileInputChange} />
+
+      <button>Submit</button>
     </div>
   );
 };
