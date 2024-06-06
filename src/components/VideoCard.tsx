@@ -1,5 +1,14 @@
 import React from 'react';
 
+export const SAMPLE_VIDEO_PLACAEHOLDER_FROM_API: VideoPlaceholderFromAPI = {
+  user_id: 'asdg7a98sd7g9a87dg',
+  description:
+    'This is a story of a great battle as a strange animal comes out of his home',
+  image_thumbnail: 'asdgasdgasdg',
+  title: 'The Animal that Comes Out of The Whole',
+  video_id: 'asd8ga7s98a7sgd',
+};
+
 export type VideoPlaceholderFromAPI = {
   user_id: string;
   description: string;
