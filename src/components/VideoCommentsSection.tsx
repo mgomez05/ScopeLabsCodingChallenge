@@ -21,7 +21,6 @@ type GetVideoCommentsResponse = ServerVideoComment[];
 const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
   video_id,
 }) => {
-  const [shouldShowComments, setShouldComments] = useState<boolean>(false);
   const [comments, setComments] = useState<GetVideoCommentsResponse | null>(
     null
   );
@@ -37,31 +36,27 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
         // Update the comments variable with the comments retrieved from the server
         const commentsFromServer = response.data;
         setComments(commentsFromServer);
-
-        setShouldComments(true);
       } else {
         console.error(
           `ERROR: Error retrieving video comments from the server, server returned error code ${response.status}, and response ${response}`
         );
-        setShouldComments(false);
       }
     } catch (error) {
       console.error(
         'ERROR: Error retrieving all region stats in MapboxComponent:',
         error
       );
-      setShouldComments(false);
     }
   };
 
   return (
     <div>
-      {/* Button to Show/Hide the Comments Section */}
+      {/* Button to Show the Comments Section */}
       <button
         className='border border-black rounded-lg py-2 px-2'
-        onClick={() => setShouldComments(!shouldShowComments)}
+        onClick={onShowCommentsButtonClicked}
       >
-        {shouldShowComments ? 'Hide Comments' : 'Show Comments'}
+        Show Comments
       </button>
 
       {/* If comments were retrieved from the server (i.e. comments !== null), 
