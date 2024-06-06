@@ -54,7 +54,7 @@ const CreateVideoButton: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className='flex flex-col border border-black rounded-lg'>
       <p>Video Title</p>
       <input
         value={videoTitle}
@@ -75,7 +75,12 @@ const CreateVideoButton: React.FC = () => {
       <p>Upload the Video</p>
       <input type='file' onChange={handleFileInputChange} />
 
-      <button onClick={onSubmitButtonClicked}>Submit</button>
+      <button
+        className='bg-white border border-black rounded-lg'
+        onClick={onSubmitButtonClicked}
+      >
+        Submit
+      </button>
 
       {/* Error Message */}
       {errorMessage && <p className='text-center'>{errorMessage}</p>}
