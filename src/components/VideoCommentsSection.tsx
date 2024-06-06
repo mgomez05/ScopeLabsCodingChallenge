@@ -22,7 +22,9 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
   video_id,
 }) => {
   const [shouldShowComments, setShouldComments] = useState<boolean>(false);
-  const [comments, setComments] = useState<GetVideoCommentsResponse>([]);
+  const [comments, setComments] = useState<GetVideoCommentsResponse | null>(
+    null
+  );
 
   const onShowCommentsButtonClicked = async () => {
     // Fetch all comments for the video from the server
@@ -62,8 +64,9 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
         {shouldShowComments ? 'Hide Comments' : 'Show Comments'}
       </button>
 
-      {/* Show the Comments Section if the user clicked the Show Comments Button*/}
-      {shouldShowComments && <VideoCommentList comments={comments} />}
+      {/* If comments were retrieved from the server (i.e. comments !== null), 
+          show the Comments Section */}
+      {comments && <VideoCommentList comments={comments} />}
     </div>
   );
 };
