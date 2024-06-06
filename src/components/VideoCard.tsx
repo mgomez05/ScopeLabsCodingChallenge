@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const SAMPLE_VIDEO_PLACAEHOLDER_FROM_API: VideoPlaceholderFromAPI = {
+export const SAMPLE_VIDEO_PLACAEHOLDER_FROM_API: VideoMetaData = {
   user_id: 'asdg7a98sd7g9a87dg',
   description:
     'This is a story of a great battle as a strange animal comes out of his home',
@@ -15,7 +15,7 @@ export const SAMPLE_VIDEO_PLACAEHOLDER_FROM_API: VideoPlaceholderFromAPI = {
 // - We assume that the GET /videos request does NOT return the actual
 //   video data, but only the metadata for the video (i.e. in order to avoid
 // overloading the browser with multiple large files
-export type VideoPlaceholderFromAPI = {
+export type VideoMetaData = {
   user_id: string;
   description: string;
   video_thumbnail: string;
@@ -24,12 +24,12 @@ export type VideoPlaceholderFromAPI = {
 };
 
 interface VideoCardProps {
-  videoPlaceholder: VideoPlaceholderFromAPI;
+  videoMetaData: VideoMetaData;
   videoDataURI?: string;
 }
 
 const VideoCard: React.FC<VideoCardProps> = ({
-  videoPlaceholder,
+  videoMetaData,
   videoDataURI,
 }) => {
   // If we have a videoDataURI from the server, show the video
@@ -39,24 +39,21 @@ const VideoCard: React.FC<VideoCardProps> = ({
       <source src={videoDataURI} type='video/mp4' />
     </video>
   ) : (
-    <img
-      src={videoPlaceholder.video_thumbnail}
-      alt={videoPlaceholder.title}
-    ></img>
+    <img src={videoMetaData.video_thumbnail} alt={videoMetaData.title}></img>
   );
 
   return (
     <div className='border border-black rounded-lg px-3 bg-white'>
       <div className='flex flex-col items-center'>
-        <p>{videoPlaceholder.title}</p>
-        <p>{videoPlaceholder.user_id}</p>
+        <p>{videoMetaData.title}</p>
+        <p>{videoMetaData.user_id}</p>
       </div>
 
       {/* Show the video if we've retrieved the videoDataURI from the server
           Otherwise, show the video thumbnail */}
       {videoCardContent}
 
-      <p>{videoPlaceholder.description}</p>
+      <p>{videoMetaData.description}</p>
     </div>
   );
 };
