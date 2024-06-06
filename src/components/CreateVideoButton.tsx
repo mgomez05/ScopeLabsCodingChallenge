@@ -54,7 +54,10 @@ const CreateVideoButton: React.FC = () => {
   };
 
   return (
-    <div className='flex flex-col border border-black rounded-lg'>
+    <div className='flex flex-col border border-black rounded-lg px-4 py-4'>
+      {/* Form Title */}
+      <p className='text-center'>Upload Your Video!</p>
+
       <p>Video Title</p>
       <input
         value={videoTitle}
