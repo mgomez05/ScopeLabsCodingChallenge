@@ -18,6 +18,11 @@ export type ServerVideoComment = {
 // Represents the server's 200 OK response to a GET /videos/comments request
 type GetVideoCommentsResponse = ServerVideoComment[];
 
+// An error message to be shown to the user if we can't retrieve
+// comments for this user
+const GENERIC_COMMENT_ERROR_MESSAGE =
+  'Comments could not be retrieved from the server for this video, please try again later';
+
 const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
   video_id,
 }) => {
@@ -27,11 +32,16 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
   //       actually got comments from it or not)
   const [isLoadingComments, setIsLoadingComments] = useState<boolean>(false);
 
+  const [errorMessage, setErrorMessage] = useState<string>('');
+
   const [comments, setComments] = useState<GetVideoCommentsResponse | null>(
     null
   );
 
   const onShowCommentsButtonClicked = async () => {
+    // Reset the error message before we fetch the comments
+    setErrorMessage('');
+
     // Start showing a loading indicator while we fetch the comments
     setIsLoadingComments(true);
 
@@ -46,11 +56,13 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
         const commentsFromServer = response.data;
         setComments(commentsFromServer);
       } else {
+        setErrorMessage(GENERIC_COMMENT_ERROR_MESSAGE);
         console.error(
           `ERROR: Error retrieving video comments from the server, server returned error code ${response.status}, and response ${response}`
         );
       }
     } catch (error) {
+      setErrorMessage(GENERIC_COMMENT_ERROR_MESSAGE);
       console.error(
         'ERROR: Error retrieving all region stats in MapboxComponent:',
         error
@@ -78,6 +90,10 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
       {/* If we are currently loading comments from the server, 
           show a loading indicator */}
       {isLoadingComments && <p>Loading Comments...</p>}
+
+      {/* If there was an error retrieving comments from the server, 
+          show an error message */}
+      {errorMessage && <p className='text-red-600'>{errorMessage}</p>}
     </div>
   );
 };
