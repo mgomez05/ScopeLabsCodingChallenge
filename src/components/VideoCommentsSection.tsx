@@ -7,10 +7,22 @@ interface VideoCommentsSectionProps {
   video_id: string;
 }
 
+// Represents the way video comments are
+// stored on the server
+type ServerVideoComment = {
+  video_id: string;
+  content: string;
+  user_id: string;
+};
+
+// Represents the server's 200 OK response to a GET /videos/comments request
+type GetVideoCommentsResponse = ServerVideoComment[];
+
 const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
   video_id,
 }) => {
   const [shouldShowComments, setShouldComments] = useState<boolean>(false);
+  const [comments, setComments] = useState<GetVideoCommentsResponse>([]);
 
   const onShowCommentsButtonClicked = async () => {
     // Fetch all comments for the video from the server
@@ -20,6 +32,10 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
       // If it's a success response, parse the data from the response
       // Otherwise, log an error message
       if (response.status === 200) {
+        // Update the comments variable with the comments retrieved from the server
+        const commentsFromServer = response.data;
+        setComments(commentsFromServer);
+
         setShouldComments(true);
       } else {
         console.error(
