@@ -4,7 +4,7 @@ export const SAMPLE_VIDEO_PLACAEHOLDER_FROM_API: VideoPlaceholderFromAPI = {
   user_id: 'asdg7a98sd7g9a87dg',
   description:
     'This is a story of a great battle as a strange animal comes out of his home',
-  image_thumbnail: 'asdgasdgasdg',
+  video_thumbnail: 'asdgasdgasdg',
   title: 'The Animal that Comes Out of The Whole',
   video_id: 'asd8ga7s98a7sgd',
 };
@@ -12,7 +12,7 @@ export const SAMPLE_VIDEO_PLACAEHOLDER_FROM_API: VideoPlaceholderFromAPI = {
 export type VideoPlaceholderFromAPI = {
   user_id: string;
   description: string;
-  image_thumbnail: string;
+  video_thumbnail: string;
   title: string;
   video_id: string;
 };
@@ -34,7 +34,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
     </video>
   ) : (
     <img
-      src={videoPlaceholder.image_thumbnail}
+      src={videoPlaceholder.video_thumbnail}
       alt={videoPlaceholder.title}
     ></img>
   );
