@@ -9,6 +9,7 @@ const CreateVideoButton: React.FC = () => {
   const [videoDescription, setVideoDescription] = useState<string>('');
 
   const [errorMessage, setErrorMessage] = useState<string>('');
+  const [successMessage, setSuccessMessage] = useState<string>('');
 
   const handleFileInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     // Read in the file from the file upload event
@@ -28,9 +29,10 @@ const CreateVideoButton: React.FC = () => {
   };
 
   const onSubmitButtonClicked = () => {
-    // Reset the error message to an empty string
+    // Reset the error message and success message
     // before we validate the form fields
     setErrorMessage('');
+    setSuccessMessage('');
 
     if (!videoTitle) {
       setErrorMessage('Please fill out the title field');
@@ -45,6 +47,9 @@ const CreateVideoButton: React.FC = () => {
       return;
     }
 
+    setSuccessMessage('Video has been uploaded successfully!');
+
+    // TODO Clear the form fields when the submit button is clicked
     // TODO Send the video data to the server
   };
 
@@ -72,7 +77,11 @@ const CreateVideoButton: React.FC = () => {
 
       <button onClick={onSubmitButtonClicked}>Submit</button>
 
-      {errorMessage && <p>{errorMessage}</p>}
+      {/* Error Message */}
+      {errorMessage && <p className='text-center'>{errorMessage}</p>}
+
+      {/* Success Message */}
+      {successMessage && <p className='text-center'>{successMessage}</p>}
     </div>
   );
 };
