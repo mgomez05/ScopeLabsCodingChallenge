@@ -55,7 +55,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
       <source src={videoDataURI} type='video/mp4' />
     </video>
   ) : (
-    <img src={videoMetaData.video_thumbnail} alt={videoMetaData.title}></img>
+    <img src='video_thumbnail_placeholder.png' alt={videoMetaData.title}></img>
   );
 
   return (
