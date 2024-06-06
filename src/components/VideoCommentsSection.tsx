@@ -84,7 +84,7 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
       </button>
 
       {/* If comments were retrieved from the server (i.e. comments !== null), 
-          show the Comments Section */}
+          show all the comments */}
       {comments && <VideoCommentList comments={comments} />}
 
       {/* If we are currently loading comments from the server, 
