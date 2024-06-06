@@ -75,9 +75,9 @@ const VideoCard: React.FC<VideoCardProps> = ({
 
       {/* Show the Title, User ID, and Description */}
       <div className='flex flex-col items-center px-3'>
-        <p>{videoMetaData.title}</p>
-        <p>{videoMetaData.user_id}</p>
-        <p>{videoMetaData.description}</p>
+        <p className='text-xl font-semibold'>{videoMetaData.title}</p>
+        <p className='text-base font-normal'>{videoMetaData.user_id}</p>
+        <p className='text-base italic'>{videoMetaData.description}</p>
       </div>
 
       <VideoCommentsSection video_id={videoMetaData.video_id} />
