@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import VideoCommentList from './VideoCommentList';
+import React from 'react';
 
 export const SAMPLE_VIDEO_META_DATA: VideoMetaData = {
   user_id: 'asdg7a98sd7g9a87dg',
@@ -26,6 +25,10 @@ export type VideoMetaData = {
 
 interface VideoCardProps {
   videoMetaData: VideoMetaData;
+  // videoData: {
+  //       videoDataURI: string;
+  //       videoType: mp4, ogg, etc.
+  //      }
   videoDataURI?: string;
 }
 
@@ -33,7 +36,6 @@ const VideoCard: React.FC<VideoCardProps> = ({
   videoMetaData,
   videoDataURI,
 }) => {
-  const [shouldShowComments, setShouldComments] = useState<boolean>(false);
   // If we have a videoDataURI from the server, show the video
   // Otherwise, show the video thumbnail
   const videoCardContent = videoDataURI ? (
@@ -50,21 +52,12 @@ const VideoCard: React.FC<VideoCardProps> = ({
         <p>{videoMetaData.title}</p>
         <p>{videoMetaData.user_id}</p>
       </div>
+
       {/* Show the video if we've retrieved the videoDataURI from the server
           Otherwise, show the video thumbnail */}
       {videoCardContent}
+
       <p>{videoMetaData.description}</p>
-
-      {/* Button to Show/Hide the Comments Section */}
-      <button
-        className='border border-black rounded-lg py-2 px-2'
-        onClick={() => setShouldComments(!shouldShowComments)}
-      >
-        {shouldShowComments ? 'Hide Comments' : 'Show Comments'}
-      </button>
-
-      {/* Show the Comments Section if the user clicked the Show Comments Button*/}
-      {shouldShowComments && <VideoCommentList />}
     </div>
   );
 };
