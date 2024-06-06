@@ -1,10 +1,18 @@
 import React from 'react';
 
-const VideoComment: React.FC = () => {
+type VideoCommentProps = {
+  commentAuthor: string;
+  commentText: string;
+};
+
+const VideoComment: React.FC<VideoCommentProps> = ({
+  commentAuthor,
+  commentText,
+}) => {
   return (
     <div className='border border-black rounded-lg px-3 bg-white'>
-      <p>author</p>
-      <p>comment</p>
+      <p className='font-bold'>{commentAuthor}</p>
+      <p>{commentText}</p>
     </div>
   );
 };
