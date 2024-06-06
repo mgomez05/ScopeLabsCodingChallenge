@@ -51,7 +51,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
   // If we have a videoDataURI from the server, show the video
   // Otherwise, show the video thumbnail
   const videoCardContent = videoDataURI ? (
-    <video controls>
+    <video controls className='rounded-lg'>
       <source src={videoDataURI} type='video/mp4' />
     </video>
   ) : (
