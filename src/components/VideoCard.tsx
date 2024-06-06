@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import VideoCommentList from './VideoCommentList';
+import React from 'react';
+import VideoCommentsSection from './VideoCommentsSection';
 
-const EXAMPLE_COMMENTS = [
+export const EXAMPLE_COMMENTS = [
   {
     commentAuthor: 'Johnny Appleseed',
     commentText: 'This is a great video!',
@@ -48,7 +48,6 @@ const VideoCard: React.FC<VideoCardProps> = ({
   videoMetaData,
   videoDataURI,
 }) => {
-  const [shouldShowComments, setShouldComments] = useState<boolean>(false);
   // If we have a videoDataURI from the server, show the video
   // Otherwise, show the video thumbnail
   const videoCardContent = videoDataURI ? (
@@ -70,17 +69,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
       {videoCardContent}
       <p>{videoMetaData.description}</p>
 
-      {/* Button to Show/Hide the Comments Section */}
-
-      <button
-        className='border border-black rounded-lg py-2 px-2'
-        onClick={() => setShouldComments(!shouldShowComments)}
-      >
-        {shouldShowComments ? 'Hide Comments' : 'Show Comments'}
-      </button>
-
-      {/* Show the Comments Section if the user clicked the Show Comments Button*/}
-      {shouldShowComments && <VideoCommentList comments={EXAMPLE_COMMENTS} />}
+      <VideoCommentsSection video_id={videoMetaData.video_id} />
     </div>
   );
 };
