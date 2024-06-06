@@ -4,7 +4,7 @@ interface VideoCardProps {}
 
 const VideoCard: React.FC<VideoCardProps> = ({}) => {
   return (
-    <div>
+    <div className='border border-black rounded-lg px-3 bg-white'>
       <div className='flex flex-col items-center'>
         <p>Title</p>
         <p>Author</p>
