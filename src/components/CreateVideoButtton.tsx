@@ -8,6 +8,8 @@ const CreateVideoButton: React.FC = () => {
   const [videoTitle, setVideoTitle] = useState<string>('');
   const [videoDescription, setVideoDescription] = useState<string>('');
 
+  const [errorMessage, setErrorMessage] = useState<string>('');
+
   const handleFileInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     // Read in the file from the file upload event
     const file = event.target.files && event.target.files[0];
@@ -23,6 +25,27 @@ const CreateVideoButton: React.FC = () => {
 
       reader.readAsDataURL(file);
     }
+  };
+
+  const onSubmitButtonClicked = () => {
+    // Reset the error message to an empty string
+    // before we validate the form fields
+    setErrorMessage('');
+
+    if (!videoTitle) {
+      setErrorMessage('Please fill out the title field');
+      return;
+    } else if (!videoDescription) {
+      setErrorMessage('Please fill out the description field');
+      return;
+    } else if (!fileAsBase64String) {
+      setErrorMessage(
+        'There was an error reading the uploaded video, please try uploading the video again'
+      );
+      return;
+    }
+
+    // TODO Send the video data to the server
   };
 
   return (
@@ -47,7 +70,9 @@ const CreateVideoButton: React.FC = () => {
       <p>Upload the Video</p>
       <input type='file' onChange={handleFileInputChange} />
 
-      <button>Submit</button>
+      <button onClick={onSubmitButtonClicked}>Submit</button>
+
+      {errorMessage && <p>{errorMessage}</p>}
     </div>
   );
 };
