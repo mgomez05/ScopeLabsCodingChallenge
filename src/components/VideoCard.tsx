@@ -68,15 +68,17 @@ const VideoCard: React.FC<VideoCardProps> = ({
   );
 
   return (
-    <div className='border border-black rounded-lg px-3 bg-white'>
-      <div className='flex flex-col items-center'>
-        <p>{videoMetaData.title}</p>
-        <p>{videoMetaData.user_id}</p>
-      </div>
+    <div className='border border-black rounded-lg bg-white'>
       {/* Show the video if we've retrieved the videoDataURI from the server
           Otherwise, show the video thumbnail */}
       {videoCardContent}
-      <p>{videoMetaData.description}</p>
+
+      {/* Show the Title, User ID, and Description */}
+      <div className='flex flex-col items-center px-3'>
+        <p>{videoMetaData.title}</p>
+        <p>{videoMetaData.user_id}</p>
+        <p>{videoMetaData.description}</p>
+      </div>
 
       <VideoCommentsSection video_id={videoMetaData.video_id} />
     </div>
