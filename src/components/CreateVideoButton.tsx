@@ -58,6 +58,7 @@ const CreateVideoButton: React.FC = () => {
       {/* Form Title */}
       <p className='text-center'>Upload Your Video!</p>
 
+      {/* Video Title Input */}
       <p>Video Title</p>
       <input
         value={videoTitle}
@@ -67,6 +68,7 @@ const CreateVideoButton: React.FC = () => {
         type='text'
       />
 
+      {/* Video Description Input */}
       <p>Video Description</p>
       <textarea
         value={videoDescription}
@@ -75,9 +77,11 @@ const CreateVideoButton: React.FC = () => {
         }
       />
 
+      {/* Video File Upload Input */}
       <p>Upload the Video</p>
       <input type='file' onChange={handleFileInputChange} />
 
+      {/* Submit Button */}
       <button
         className='bg-white border border-black rounded-lg'
         onClick={onSubmitButtonClicked}
