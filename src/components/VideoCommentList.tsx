@@ -1,8 +1,9 @@
 import React from 'react';
-import VideoComment, { VideoCommentProps } from './VideoComment';
+import VideoComment from './VideoComment';
+import { ServerVideoComment } from './VideoCommentsSection';
 
 type VideoCommentListProps = {
-  comments: VideoCommentProps[];
+  comments: ServerVideoComment[];
 };
 
 const VideoCommentList: React.FC<VideoCommentListProps> = ({ comments }) => {
@@ -13,8 +14,8 @@ const VideoCommentList: React.FC<VideoCommentListProps> = ({ comments }) => {
         {comments.map((comment, index) => (
           <VideoComment
             key={index}
-            commentAuthor={comment.commentAuthor}
-            commentText={comment.commentText}
+            commentAuthor={comment.user_id}
+            commentText={comment.content}
           />
         ))}
       </div>

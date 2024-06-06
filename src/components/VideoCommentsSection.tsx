@@ -9,7 +9,7 @@ interface VideoCommentsSectionProps {
 
 // Represents the way video comments are
 // stored on the server
-type ServerVideoComment = {
+export type ServerVideoComment = {
   video_id: string;
   content: string;
   user_id: string;
@@ -63,7 +63,7 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
       </button>
 
       {/* Show the Comments Section if the user clicked the Show Comments Button*/}
-      {shouldShowComments && <VideoCommentList comments={EXAMPLE_COMMENTS} />}
+      {shouldShowComments && <VideoCommentList comments={comments} />}
     </div>
   );
 };
