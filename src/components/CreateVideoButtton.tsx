@@ -5,6 +5,9 @@ const CreateVideoButton: React.FC = () => {
     string | ArrayBuffer | null
   >('');
 
+  const [videoTitle, setVideoTitle] = useState<string>('');
+  const [videoDescription, setVideoDescription] = useState<string>('');
+
   const handleFileInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     // Read in the file from the file upload event
     const file = event.target.files && event.target.files[0];
@@ -25,10 +28,21 @@ const CreateVideoButton: React.FC = () => {
   return (
     <div>
       <p>Video Title</p>
-      <input type='text' />
+      <input
+        value={videoTitle}
+        onChange={(event: ChangeEvent<HTMLInputElement>) =>
+          setVideoTitle(event.target.value)
+        }
+        type='text'
+      />
 
       <p>Video Description</p>
-      <textarea />
+      <textarea
+        value={videoDescription}
+        onChange={(event: ChangeEvent<HTMLTextAreaElement>) =>
+          setVideoDescription(event.target.value)
+        }
+      />
 
       <p>Upload the Video</p>
       <input type='file' onChange={handleFileInputChange} />
