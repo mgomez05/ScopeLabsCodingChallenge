@@ -18,7 +18,7 @@ const EXAMPLE_COMMENTS = [
 
 const VideoCommentList: React.FC = () => {
   return (
-    <div className='border border-black rounded-lg bg-white'>
+    <div className='bg-white'>
       <p className='text-center text-3xl font-bold pt-2 px-2'>Comments</p>
       <div className='flex flex-col gap-y-3 pb-2'>
         {EXAMPLE_COMMENTS.map((comment, index) => (
