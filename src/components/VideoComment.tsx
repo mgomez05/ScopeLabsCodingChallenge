@@ -1,6 +1,6 @@
 import React from 'react';
 
-type VideoCommentProps = {
+export type VideoCommentProps = {
   commentAuthor: string;
   commentText: string;
 };

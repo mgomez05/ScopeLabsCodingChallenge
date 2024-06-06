@@ -1,6 +1,21 @@
 import React, { useState } from 'react';
 import VideoCommentList from './VideoCommentList';
 
+const EXAMPLE_COMMENTS = [
+  {
+    commentAuthor: 'Johnny Appleseed',
+    commentText: 'This is a great video!',
+  },
+  {
+    commentAuthor: 'Jane Doe',
+    commentText: 'I love this video!',
+  },
+  {
+    commentAuthor: 'John Smith',
+    commentText: 'This video is amazing!',
+  },
+];
+
 export const SAMPLE_VIDEO_META_DATA: VideoMetaData = {
   user_id: 'asdg7a98sd7g9a87dg',
   description:
@@ -56,6 +71,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
       <p>{videoMetaData.description}</p>
 
       {/* Button to Show/Hide the Comments Section */}
+
       <button
         className='border border-black rounded-lg py-2 px-2'
         onClick={() => setShouldComments(!shouldShowComments)}
@@ -64,7 +80,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
       </button>
 
       {/* Show the Comments Section if the user clicked the Show Comments Button*/}
-      {shouldShowComments && <VideoCommentList />}
+      {shouldShowComments && <VideoCommentList comments={EXAMPLE_COMMENTS} />}
     </div>
   );
 };
