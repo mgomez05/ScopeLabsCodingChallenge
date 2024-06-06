@@ -21,11 +21,20 @@ type GetVideoCommentsResponse = ServerVideoComment[];
 const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
   video_id,
 }) => {
+  // True - if we are currently loading comments from the server
+  // False - if we haven't requested comments yet from the server, or
+  //       if the GET /videeos/comments request has completed (i.e. regardless of we
+  //       actually got comments from it or not)
+  const [isLoadingComments, setIsLoadingComments] = useState<boolean>(false);
+
   const [comments, setComments] = useState<GetVideoCommentsResponse | null>(
     null
   );
 
   const onShowCommentsButtonClicked = async () => {
+    // Start showing a loading indicator while we fetch the comments
+    setIsLoadingComments(true);
+
     // Fetch all comments for the video from the server
     try {
       const response = await axios.get(`/videos/comments?video_id=${video_id}`);
@@ -47,6 +56,9 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
         error
       );
     }
+
+    // Stop showing the loading indicator, since we finished fetching the comments
+    setIsLoadingComments(false);
   };
 
   return (
@@ -62,6 +74,10 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
       {/* If comments were retrieved from the server (i.e. comments !== null), 
           show the Comments Section */}
       {comments && <VideoCommentList comments={comments} />}
+
+      {/* If we are currently loading comments from the server, 
+          show a loading indicator */}
+      {isLoadingComments && <p>Loading Comments...</p>}
     </div>
   );
 };
