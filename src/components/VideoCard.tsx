@@ -55,7 +55,16 @@ const VideoCard: React.FC<VideoCardProps> = ({
       <source src={videoDataURI} type='video/mp4' />
     </video>
   ) : (
-    <img src='video_thumbnail_placeholder.png' alt={videoMetaData.title}></img>
+    // Show the video_thumbnail provided by the server if it exists,
+    // otherwise show a placeholder image
+    <img
+      src={
+        videoMetaData.video_thumbnail
+          ? videoMetaData.video_thumbnail
+          : 'video_thumbnail_placeholder.png'
+      }
+      alt={videoMetaData.title}
+    ></img>
   );
 
   return (
