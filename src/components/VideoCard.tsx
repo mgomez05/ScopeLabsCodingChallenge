@@ -9,6 +9,12 @@ export const SAMPLE_VIDEO_PLACAEHOLDER_FROM_API: VideoPlaceholderFromAPI = {
   video_id: 'asd8ga7s98a7sgd',
 };
 
+// A type that helps represent expected response body from the GET /videos request
+// - It is assumed that GET /videos request will return an array of
+//   VideoPlaceholderFromAPI objects
+// - We assume that the GET /videos request does NOT return the actual
+//   video data, but only the metadata for the video (i.e. in order to avoid
+// overloading the browser with multiple large files
 export type VideoPlaceholderFromAPI = {
   user_id: string;
   description: string;
