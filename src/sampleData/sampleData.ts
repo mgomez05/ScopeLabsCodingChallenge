@@ -1,5 +1,7 @@
 import { VideoMetaData } from '../components/VideoCard';
 
+export const SAMPLE_VIDEO_PATH = 'SampleVideo_1280x720_1mb.mp4';
+
 export const EXAMPLE_COMMENTS = [
   {
     commentAuthor: 'Johnny Appleseed',
