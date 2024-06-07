@@ -21,32 +21,50 @@ export const SAMPLE_VIDEO_META_DATA: VideoMetaData = {
     'This is a story of a great battle as a strange animal comes out of his home',
   video_thumbnail: '',
   title: 'The Animal that Comes Out of The Whole',
-  video_id: 'asd8ga7s98a7sgd',
+  video_id: 'video_1',
 };
 
 export const SAMPLE_VIDEO_LIST = [
   {
-    videoMetaData: SAMPLE_VIDEO_META_DATA,
-    videoDataURI: 'SampleVideo_1280x720_1mb.mp4',
+    videoMetaData: {
+      ...SAMPLE_VIDEO_META_DATA,
+      video_id: 'video_1',
+      title: 'The Gorilla and the Banana',
+    },
   },
   {
-    videoMetaData: SAMPLE_VIDEO_META_DATA,
-    videoDataURI: 'SampleVideo_1280x720_1mb.mp4',
+    videoMetaData: {
+      ...SAMPLE_VIDEO_META_DATA,
+      video_id: 'video_2',
+      title: 'The Beaver and the Dam',
+    },
   },
   {
-    videoMetaData: SAMPLE_VIDEO_META_DATA,
-    videoDataURI: 'SampleVideo_1280x720_1mb.mp4',
+    videoMetaData: {
+      ...SAMPLE_VIDEO_META_DATA,
+      video_id: 'video_3',
+      title: 'The Cheetag and the Gazelle',
+    },
   },
   {
-    videoMetaData: SAMPLE_VIDEO_META_DATA,
-    videoDataURI: 'SampleVideo_1280x720_1mb.mp4',
+    videoMetaData: {
+      ...SAMPLE_VIDEO_META_DATA,
+      video_id: 'video_4',
+      title: 'The Mammoth and the Ice',
+    },
   },
   {
-    videoMetaData: SAMPLE_VIDEO_META_DATA,
-    videoDataURI: 'SampleVideo_1280x720_1mb.mp4',
+    videoMetaData: {
+      ...SAMPLE_VIDEO_META_DATA,
+      video_id: 'video_5',
+      title: 'The Lizard on the Rock',
+    },
   },
   {
-    videoMetaData: SAMPLE_VIDEO_META_DATA,
-    videoDataURI: 'SampleVideo_1280x720_1mb.mp4',
+    videoMetaData: {
+      ...SAMPLE_VIDEO_META_DATA,
+      video_id: 'video_6',
+      title: 'The Horse and the Saddle',
+    },
   },
 ];
