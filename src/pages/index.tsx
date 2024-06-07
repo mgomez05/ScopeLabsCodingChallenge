@@ -8,6 +8,7 @@ export default function Home() {
       <div>
         hi my name is Russ
         <p>Learnwell</p>
+        <img src='full_logo_color.png' alt='Learnwell Logo'></img>
         <button>Click me</button>
       </div>
       <VideoGallery
