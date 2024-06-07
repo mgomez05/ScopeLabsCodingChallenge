@@ -18,11 +18,13 @@ export type VideoMetaData = {
 export interface VideoCardProps {
   videoMetaData: VideoMetaData;
   videoDataURI?: string;
+  showVideoComments?: boolean;
 }
 
 const VideoCard: React.FC<VideoCardProps> = ({
   videoMetaData,
   videoDataURI,
+  showVideoComments,
 }) => {
   // If we have a videoDataURI from the server, show the video
   // Otherwise, show the video thumbnail
@@ -59,7 +61,9 @@ const VideoCard: React.FC<VideoCardProps> = ({
         <p className='text-base italic'>{videoMetaData.description}</p>
       </div>
 
-      <VideoCommentsSection video_id={videoMetaData.video_id} />
+      {showVideoComments && (
+        <VideoCommentsSection video_id={videoMetaData.video_id} />
+      )}
     </div>
   );
 };

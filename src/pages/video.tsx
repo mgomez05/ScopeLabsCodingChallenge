@@ -17,6 +17,7 @@ export default function VideoPage() {
           <VideoCard
             videoDataURI={SAMPLE_VIDEO_LIST[0].videoDataURI}
             videoMetaData={SAMPLE_VIDEO_LIST[0].videoMetaData}
+            showVideoComments
           />
         </div>
 
