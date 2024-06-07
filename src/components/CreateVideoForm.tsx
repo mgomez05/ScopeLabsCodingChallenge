@@ -36,10 +36,10 @@ const CreateVideoForm: React.FC = () => {
     setSuccessMessage('');
 
     if (!videoTitle) {
-      setErrorMessage('Please fill out the title field');
+      setErrorMessage('Please fill out the Video Title field');
       return;
     } else if (!videoDescription) {
-      setErrorMessage('Please fill out the description field');
+      setErrorMessage('Please fill out the Video Description field');
       return;
     } else if (!fileAsBase64String) {
       setErrorMessage(
