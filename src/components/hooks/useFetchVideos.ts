@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { VideoCardProps } from '@/components/VideoCard';
 
-const my_user_id = 'russ_gomez';
+export const MY_USER_ID = 'russ_gomez';
 
 const useFetchVideos = () => {
   const [allVideos, setAllVideos] = useState<VideoCardProps[]>([]);
 
   const fetchVideosFromServer = async () => {
     try {
-      const response = await axios.get(`/videos/?user_id=${my_user_id}`);
+      const response = await axios.get(`/videos/?user_id=${MY_USER_ID}`);
       if (response.status === 200) {
         const videosFromServer = JSON.parse(response.data);
         setAllVideos(videosFromServer);
