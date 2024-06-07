@@ -22,11 +22,7 @@ const VideoGallery: React.FC<VideoGalleryProps> = ({
             onVideoClick(video.videoMetaData.video_id);
           }}
         >
-          <VideoCard
-            key={index}
-            videoMetaData={video.videoMetaData}
-            videoDataURI={index % 2 === 0 ? 'SampleVideo_1280x720_1mb.mp4' : ''}
-          />
+          <VideoCard key={index} videoMetaData={video.videoMetaData} />
         </div>
       ))}
 
