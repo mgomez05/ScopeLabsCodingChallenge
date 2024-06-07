@@ -25,6 +25,9 @@ const CreateVideoForm: React.FC = () => {
     }
   };
 
+  // To be called when a user uploads a file to the file input field
+  // - Converts the uploaded file to a Base64 string so it can be sent to
+  //   the server, setting the <fileAsBase64String> acccordingly
   const handleFileInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     // Read in the file from the file upload event
     const file = event.target.files && event.target.files[0];
