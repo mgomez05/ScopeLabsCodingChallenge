@@ -60,13 +60,13 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
       } else {
         setErrorMessage(GENERIC_COMMENT_ERROR_MESSAGE);
         console.error(
-          `ERROR: Error retrieving video comments from the server, server returned error code ${response.status}, and response ${response}`
+          `ERROR: Error retrieving video comments from the server for video with id '${video_id}', server returned error code ${response.status}, and response ${response}`
         );
       }
     } catch (error) {
       setErrorMessage(GENERIC_COMMENT_ERROR_MESSAGE);
       console.error(
-        'ERROR: Error retrieving all region stats in MapboxComponent:',
+        `ERROR: Error retrieving video comments from the server for video with id '${video_id}' here's the error:`,
         error
       );
     }
