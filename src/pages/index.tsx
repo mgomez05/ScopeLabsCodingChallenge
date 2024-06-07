@@ -4,7 +4,7 @@ import LearnwellHeader from '@/components/LearnwellHeader';
 import { useRouter } from 'next/router';
 
 import useFetchVideos from '@/components/hooks/useFetchVideos';
-import CreateVideoButton from '@/components/CreateVideoButton';
+import CreateVideoForm from '@/components/CreateVideoForm';
 
 export default function Home() {
   const router = useRouter();
@@ -42,8 +42,7 @@ export default function Home() {
             the user clicks on the Upload button in the header */}
         {shouldShowCreateVideoForm && (
           <div className='mt-4'>
-            {' '}
-            <CreateVideoButton />
+            <CreateVideoForm />
           </div>
         )}
       </div>
