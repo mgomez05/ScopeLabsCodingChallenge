@@ -1,6 +1,5 @@
 import React from 'react';
 import VideoCard, { VideoCardProps } from './VideoCard';
-import CreateVideoButton from './CreateVideoButton';
 
 interface VideoGalleryProps {
   videoList: VideoCardProps[];
