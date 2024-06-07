@@ -54,7 +54,9 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
       // Otherwise, log an error message
       if (response.status === 200) {
         // Update the comments variable with the comments retrieved from the server
-        const commentsFromServer = response.data;
+        // - NOTE: We use JSON.parse() since the api spec this endpoint returns a string
+        //         with media type application/json
+        const commentsFromServer = JSON.parse(response.data);
         setComments(commentsFromServer);
       } else {
         setErrorMessage(GENERIC_COMMENT_ERROR_MESSAGE);
