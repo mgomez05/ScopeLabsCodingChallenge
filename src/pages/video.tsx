@@ -69,7 +69,10 @@ export default function VideoPage() {
       {/* Page Header */}
       <LearnwellHeader
         leftSideText='Video View'
-        onButtonClick={() => {}}
+        onButtonClick={() => {
+          // Navigate to the home page on click
+          router.push('/');
+        }}
         buttonText='Home'
       />
       <div className='grid grid-cols-3 gap-4'>
