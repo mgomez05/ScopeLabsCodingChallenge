@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import { useRouter } from 'next/router';
+import useFetchVideos from '@/components/hooks/useFetchVideos';
 
 // The expected data structure for a single video retrieved
 // from the GET /videos/single request
@@ -24,6 +25,10 @@ export default function VideoPage() {
 
   const { video_id } = router.query;
 
+  // Fetch all videos from the server that will be shown in the vertical list
+  const { allVideos } = useFetchVideos();
+
+  // The video data for the main video being shown on the page
   const [videoData, setVideoData] = useState<SingleVideoData | null>(null);
 
   const fetchVideoFromServer = async (video_id: string) => {
@@ -52,7 +57,7 @@ export default function VideoPage() {
     }
   };
 
-  // Fetch the data for the video when the page first loads
+  // Fetch the data for the main video when the page first loads
   useEffect(() => {
     if (video_id) {
       fetchVideoFromServer(video_id as string);
@@ -91,7 +96,7 @@ export default function VideoPage() {
         <div className='p-4'>
           <VideoGallery
             className='flex flex-col gap-y-4'
-            videoList={SAMPLE_VIDEO_LIST}
+            videoList={allVideos}
             onVideoClick={(video_id) => {
               router.push({
                 pathname: '/video',
