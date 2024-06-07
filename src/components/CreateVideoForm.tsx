@@ -57,10 +57,10 @@ const CreateVideoForm: React.FC = () => {
   return (
     <div className='w-[600px] flex flex-col gap-y-3 border border-black rounded-lg px-4 py-4'>
       {/* Form Title */}
-      <p className='text-center'>Upload Your Video!</p>
+      <p className='text-xl font-bold text-center'>Upload Your Video!</p>
 
       {/* Video Title Input */}
-      <p>Video Title</p>
+      <p className='text-lg font-bold'>Video Title</p>
       <input
         className='px-6 py-3 bg-black-opacity-10-percent rounded-3xl'
         value={videoTitle}
@@ -71,7 +71,7 @@ const CreateVideoForm: React.FC = () => {
       />
 
       {/* Video Description Input */}
-      <p>Video Description</p>
+      <p className='text-lg font-bold'>Video Description</p>
       <textarea
         className='h-[100px] px-6 py-3 bg-black-opacity-10-percent rounded-3xl resize-none'
         value={videoDescription}
@@ -81,7 +81,7 @@ const CreateVideoForm: React.FC = () => {
       />
 
       {/* Video File Upload Input */}
-      <p>Upload the Video</p>
+      <p className='text-lg font-bold'>Upload the Video</p>
       <input type='file' onChange={handleFileInputChange} />
 
       {/* Submit Button */}
