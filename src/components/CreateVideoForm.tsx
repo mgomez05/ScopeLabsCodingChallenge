@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useState, useRef } from 'react';
 import Button from './Button';
 import axios from 'axios';
 import { MY_USER_ID } from '@/hooks/useFetchVideos';
@@ -13,9 +13,17 @@ const CreateVideoForm: React.FC = () => {
 
   const [videoTitle, setVideoTitle] = useState<string>('');
   const [videoDescription, setVideoDescription] = useState<string>('');
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [successMessage, setSuccessMessage] = useState<string>('');
+
+  // Remove the file that was uploaded to the file input field
+  const resetFileInputField = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
 
   const handleFileInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     // Read in the file from the file upload event
@@ -46,10 +54,17 @@ const CreateVideoForm: React.FC = () => {
         video_url: fileAsBase64String,
       });
 
-      // If it's a success response, display a success message
+      // If it's a success response, display a success message and reset the form fields
       // Otherwise, log an error message and display an error message
-      if (response.status === 200 || response.status === 201) {
+      if (response.status == 200 || response.status === 201) {
+        // Show a success message
         setSuccessMessage('Video has been uploaded successfully!');
+
+        // Reset the form fields
+        setVideoTitle('');
+        setVideoDescription('');
+        resetFileInputField();
+        setFileAsBase64String('');
       } else {
         setErrorMessage(ERROR_UPLOADING_VIDEO_TO_SERVER_MESSAGE);
         console.error(
@@ -117,7 +132,12 @@ const CreateVideoForm: React.FC = () => {
 
       {/* Video File Upload Input */}
       <p className='text-lg font-bold'>Upload the Video</p>
-      <input className='mb-2' type='file' onChange={handleFileInputChange} />
+      <input
+        ref={fileInputRef}
+        className='mb-2'
+        type='file'
+        onChange={handleFileInputChange}
+      />
 
       {/* Error Message */}
       {errorMessage && <p className='text-center'>{errorMessage}</p>}
