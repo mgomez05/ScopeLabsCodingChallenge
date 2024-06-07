@@ -32,7 +32,8 @@ const VideoGallery: React.FC<VideoGalleryProps> = ({
       ) : (
         // If there are no videos to display, show an error message to the user
         <p className='text-lg font-semibold text-center'>
-          No videos could be retrieved from the server, please try again later
+          No videos could be retrieved from the server, please try refreshing
+          the page
         </p>
       )}
     </>
