@@ -93,7 +93,7 @@ export default function VideoPage() {
         </div>
 
         {/* Vertical List of Videos on the Right Hand Side */}
-        <div className='p-4'>
+        <div className='p-4 flex flex-col justify-center'>
           <VideoGallery
             className='flex flex-col gap-y-4'
             videoList={allVideos}
