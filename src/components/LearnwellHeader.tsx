@@ -14,7 +14,7 @@ const LearnwellHeader: React.FC<LearnwellHeaderProps> = ({
 }) => {
   return (
     <div className='flex flex-row items-center justify-between py-4 px-4'>
-      <p>{leftSideText}</p>
+      <p className='text-2xl font-semibold'>{leftSideText}</p>
       <img width='155px' src='full_logo_color.png' alt='Learnwell Logo'></img>
       <Button onClick={onButtonClick}>{buttonText}</Button>
     </div>
