@@ -15,13 +15,14 @@ const config: Config = {
       },
       colors: {
         'learnwell-blue': '#00B6EF',
+        'black-opacity-10-percent': '#0000001A',
       },
     },
   },
   plugins: [],
   safelist: [
     {
-      pattern: /(text|bg)-(learnwell-blue)/,
+      pattern: /(text|bg)-(learnwell-blue|black-opacity-10-percent)/,
     },
   ],
 };
