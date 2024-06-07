@@ -55,7 +55,7 @@ const CreateVideoForm: React.FC = () => {
   };
 
   return (
-    <div className='flex flex-col gap-y-3 border border-black rounded-lg px-4 py-4'>
+    <div className='w-[600px] flex flex-col gap-y-3 border border-black rounded-lg px-4 py-4'>
       {/* Form Title */}
       <p className='text-center'>Upload Your Video!</p>
 
