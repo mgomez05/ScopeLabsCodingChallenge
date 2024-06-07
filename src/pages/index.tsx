@@ -1,11 +1,14 @@
 import VideoGallery from '@/components/VideoGallery';
 import React from 'react';
 import LearnwellHeader from '@/components/LearnwellHeader';
-import { SAMPLE_VIDEO_LIST } from '@/sampleData/sampleData';
 import { useRouter } from 'next/router';
+
+import useFetchVideos from '@/components/hooks/useFetchVideos';
 
 export default function Home() {
   const router = useRouter();
+
+  const { allVideos } = useFetchVideos();
 
   return (
     <main className={`min-h-screen px-24`}>
@@ -17,7 +20,7 @@ export default function Home() {
             query: { video_id: videoId },
           });
         }}
-        videoList={SAMPLE_VIDEO_LIST}
+        videoList={allVideos}
         className='grid grid-cols-3 gap-4 overflow-y-auto'
       />
     </main>
