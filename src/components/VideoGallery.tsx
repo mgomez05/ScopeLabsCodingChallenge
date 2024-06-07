@@ -5,14 +5,16 @@ import CreateVideoButton from './CreateVideoButton';
 interface VideoGalleryProps {
   videoList: VideoCardProps[];
   onVideoClick: (videoId: string) => void;
+  className?: string;
 }
 
 const VideoGallery: React.FC<VideoGalleryProps> = ({
   videoList,
   onVideoClick,
+  className,
 }) => {
   return (
-    <div className='grid grid-cols-3 gap-4 overflow-y-auto'>
+    <div className={className}>
       {/* Render the list of videos */}
       {videoList.map((video, index) => (
         <div

@@ -12,6 +12,7 @@ export default function Home() {
           console.log(`Clicked on video with ID: ${videoId}`);
         }}
         videoList={SAMPLE_VIDEO_LIST}
+        className='grid grid-cols-3 gap-4 overflow-y-auto'
       />
     </main>
   );
