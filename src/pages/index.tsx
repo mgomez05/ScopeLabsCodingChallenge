@@ -12,27 +12,27 @@ export default function Home() {
   const { allVideos } = useFetchVideos();
 
   return (
-    <div className='grid grid-rows-3 min-h-screen'>
+    <>
       <LearnwellHeader />
 
-      {/* Video Gallery */}
-      <div className='row-span-2 p-4'>
-        <VideoGallery
-          onVideoClick={(videoId) => {
-            router.push({
-              pathname: '/video',
-              query: { video_id: videoId },
-            });
-          }}
-          videoList={allVideos}
-          className='grid grid-cols-3 gap-4 overflow-y-auto'
-        />
-      </div>
+      <div className='h-full'>
+        {/* Video Gallery */}
+        <div className='p-4 max-h-[750px] overflow-y-auto'>
+          <VideoGallery
+            onVideoClick={(videoId) => {
+              router.push({
+                pathname: '/video',
+                query: { video_id: videoId },
+              });
+            }}
+            videoList={allVideos}
+            className='grid grid-cols-3 gap-4'
+          />
+        </div>
 
-      {/* Create Video Form */}
-      <div className='row-span-1 p-4'>
+        {/* Create Video Form */}
         <CreateVideoButton />
       </div>
-    </div>
+    </>
   );
 }
