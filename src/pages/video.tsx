@@ -4,9 +4,13 @@ import VideoGallery from '@/components/VideoGallery';
 import { SAMPLE_VIDEO_LIST } from '@/sampleData/sampleData';
 import React from 'react';
 
+import { useRouter } from 'next/router';
+
 // A page for showing a single video,  with a vertical list of videos
 // on the right hand side
 export default function VideoPage() {
+  const router = useRouter();
+
   return (
     <div className='flex flex-col'>
       {/* Page Header */}
@@ -26,8 +30,11 @@ export default function VideoPage() {
           <VideoGallery
             className='flex flex-col gap-y-4'
             videoList={SAMPLE_VIDEO_LIST}
-            onVideoClick={() => {
-              console.log('Someone clicked a video on the side list');
+            onVideoClick={(video_id) => {
+              router.push({
+                pathname: '/video',
+                query: { video_id: video_id },
+              });
             }}
           />
         </div>
