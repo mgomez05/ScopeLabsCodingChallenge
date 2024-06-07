@@ -9,14 +9,18 @@ import React from 'react';
 export default function VideoPage() {
   return (
     <div className='flex flex-col'>
+      {/* Page Header */}
       <LearnwellHeader />
       <div className='grid grid-cols-3 gap-4'>
+        {/* Main Video */}
         <div className='col-span-2 p-4'>
           <VideoCard
             videoDataURI={SAMPLE_VIDEO_LIST[0].videoDataURI}
             videoMetaData={SAMPLE_VIDEO_LIST[0].videoMetaData}
           />
         </div>
+
+        {/* Vertical List of Videos on the Right Hand Side */}
         <div className='p-4'>
           <VideoGallery
             videoList={SAMPLE_VIDEO_LIST}
