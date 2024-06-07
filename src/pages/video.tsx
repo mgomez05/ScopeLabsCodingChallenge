@@ -24,6 +24,7 @@ export default function VideoPage() {
         {/* Vertical List of Videos on the Right Hand Side */}
         <div className='p-4'>
           <VideoGallery
+            className='flex flex-col gap-y-4'
             videoList={SAMPLE_VIDEO_LIST}
             onVideoClick={() => {
               console.log('Someone clicked a video on the side list');
