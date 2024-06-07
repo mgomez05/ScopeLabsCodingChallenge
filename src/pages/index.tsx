@@ -1,15 +1,12 @@
 import VideoGallery from '@/components/VideoGallery';
 import React from 'react';
 import { SAMPLE_VIDEO_META_DATA } from '@/components/VideoCard';
+import LearnwellHeader from '@/components/LearnwellHeader';
 
 export default function Home() {
   return (
     <main className={`min-h-screen px-24`}>
-      <div className='flex flex-row items-center justify-between'>
-        <p>Check out our videos!</p>
-        <img src='full_logo_color.png' alt='Learnwell Logo'></img>
-        <button>Click me</button>
-      </div>
+      <LearnwellHeader />
       <VideoGallery
         onVideoClick={(videoId) => {
           console.log(`Clicked on video with ID: ${videoId}`);
