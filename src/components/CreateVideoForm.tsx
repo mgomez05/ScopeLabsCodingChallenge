@@ -1,5 +1,10 @@
 import React, { ChangeEvent, useState } from 'react';
 import Button from './Button';
+import axios from 'axios';
+import { MY_USER_ID } from '@/hooks/useFetchVideos';
+
+const ERROR_UPLOADING_VIDEO_TO_SERVER_MESSAGE =
+  'There was an error uploading the video to the server, please try again later';
 
 const CreateVideoForm: React.FC = () => {
   const [fileAsBase64String, setFileAsBase64String] = useState<
@@ -29,6 +34,38 @@ const CreateVideoForm: React.FC = () => {
     }
   };
 
+  // Attempts to upload the video to the server with the details filled out in the form
+  // - If the server gives us a 200 or 201 status code, we show a success message
+  // - Otherwise, we show an error message
+  const sendVideoToServer = async () => {
+    try {
+      const response = await axios.post(`/videos`, {
+        user_id: MY_USER_ID,
+        title: videoTitle,
+        description: videoDescription,
+        video_url: fileAsBase64String,
+      });
+
+      // If it's a success response, display a success message
+      // Otherwise, log an error message and display an error message
+      if (response.status === 200 || response.status === 201) {
+        setSuccessMessage('Video has been uploaded successfully!');
+      } else {
+        setErrorMessage(ERROR_UPLOADING_VIDEO_TO_SERVER_MESSAGE);
+        console.error(
+          `ERROR: Error uploading the video to the server, status code was`,
+          response.status
+        );
+      }
+    } catch (error) {
+      setErrorMessage(ERROR_UPLOADING_VIDEO_TO_SERVER_MESSAGE);
+      console.error(
+        `ERROR: Error uploading the video to the server, here's the error:`,
+        error
+      );
+    }
+  };
+
   const onSubmitButtonClicked = () => {
     // Reset the error message and success message
     // before we validate the form fields
@@ -48,10 +85,8 @@ const CreateVideoForm: React.FC = () => {
       return;
     }
 
-    setSuccessMessage('Video has been uploaded successfully!');
-
-    // TODO Clear the form fields when the submit button is clicked
-    // TODO Send the video data to the server
+    // If we passed form validation, attempt to upload the video to the server
+    sendVideoToServer();
   };
 
   return (
