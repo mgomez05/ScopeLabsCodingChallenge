@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react';
 import Button from './Button';
 
-const CreateVideoButton: React.FC = () => {
+const CreateVideoForm: React.FC = () => {
   const [fileAsBase64String, setFileAsBase64String] = useState<
     string | ArrayBuffer | null
   >('');
@@ -55,7 +55,7 @@ const CreateVideoButton: React.FC = () => {
   };
 
   return (
-    <div className='flex flex-col border border-black rounded-lg px-4 py-4'>
+    <div className='flex flex-col gap-y-3 border border-black rounded-lg px-4 py-4'>
       {/* Form Title */}
       <p className='text-center'>Upload Your Video!</p>
 
@@ -94,4 +94,4 @@ const CreateVideoButton: React.FC = () => {
   );
 };
 
-export default CreateVideoButton;
+export default CreateVideoForm;
