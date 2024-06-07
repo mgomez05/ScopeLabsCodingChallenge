@@ -41,7 +41,7 @@ export default function Home() {
         {/* Show/Hide the Create Video Form when 
             the user clicks on the Upload button in the header */}
         {shouldShowCreateVideoForm && (
-          <div className='mt-4'>
+          <div className='flex flex-row justify-center mt-4'>
             <CreateVideoForm />
           </div>
         )}
