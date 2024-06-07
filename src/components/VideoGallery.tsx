@@ -29,8 +29,6 @@ const VideoGallery: React.FC<VideoGalleryProps> = ({
               <VideoCard key={index} videoMetaData={video.videoMetaData} />
             </div>
           ))}
-
-          <CreateVideoButton />
         </div>
       ) : (
         // If there are no videos to display, show an error message to the user

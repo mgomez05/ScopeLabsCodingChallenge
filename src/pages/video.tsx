@@ -67,7 +67,11 @@ export default function VideoPage() {
   return (
     <div className='flex flex-col'>
       {/* Page Header */}
-      <LearnwellHeader />
+      <LearnwellHeader
+        leftSideText='Video View'
+        onButtonClick={() => {}}
+        buttonText='Home'
+      />
       <div className='grid grid-cols-3 gap-4'>
         {/* Main Video */}
         <div className='col-span-2 p-4'>

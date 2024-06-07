@@ -1,12 +1,22 @@
 import React from 'react';
 import Button from './Button';
 
-const LearnwellHeader: React.FC = () => {
+type LearnwellHeaderProps = {
+  leftSideText: string;
+  onButtonClick: () => void;
+  buttonText: string;
+};
+
+const LearnwellHeader: React.FC<LearnwellHeaderProps> = ({
+  leftSideText,
+  onButtonClick,
+  buttonText,
+}) => {
   return (
     <div className='flex flex-row items-center justify-between py-4 px-4'>
-      <p>Check out our videos!</p>
+      <p>{leftSideText}</p>
       <img width='155px' src='full_logo_color.png' alt='Learnwell Logo'></img>
-      <Button onClick={() => console.log('Button clicked!')}>Upload</Button>
+      <Button onClick={onButtonClick}>{buttonText}</Button>
     </div>
   );
 };

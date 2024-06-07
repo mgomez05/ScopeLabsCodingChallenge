@@ -13,8 +13,13 @@ export default function Home() {
 
   return (
     <>
-      <LearnwellHeader />
-
+      <LearnwellHeader
+        leftSideText='Check out our videos!'
+        buttonText='Upload'
+        onButtonClick={() => {
+          console.log('Upload button clicked');
+        }}
+      />
       <div className='h-full'>
         {/* Video Gallery */}
         <div className='p-4 max-h-[750px] overflow-y-auto'>
