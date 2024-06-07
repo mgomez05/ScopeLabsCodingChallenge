@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import VideoCommentList from './VideoCommentList';
-import { EXAMPLE_COMMENTS } from './VideoCard';
 import axios from 'axios';
 import Button from './Button';
 

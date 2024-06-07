@@ -1,5 +1,5 @@
 import React from 'react';
-import VideoCard, { SAMPLE_VIDEO_META_DATA, VideoCardProps } from './VideoCard';
+import VideoCard, { VideoCardProps } from './VideoCard';
 import CreateVideoButton from './CreateVideoButton';
 
 interface VideoGalleryProps {

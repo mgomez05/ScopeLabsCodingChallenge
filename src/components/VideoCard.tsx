@@ -1,30 +1,6 @@
 import React from 'react';
 import VideoCommentsSection from './VideoCommentsSection';
 
-export const EXAMPLE_COMMENTS = [
-  {
-    commentAuthor: 'Johnny Appleseed',
-    commentText: 'This is a great video!',
-  },
-  {
-    commentAuthor: 'Jane Doe',
-    commentText: 'I love this video!',
-  },
-  {
-    commentAuthor: 'John Smith',
-    commentText: 'This video is amazing!',
-  },
-];
-
-export const SAMPLE_VIDEO_META_DATA: VideoMetaData = {
-  user_id: 'asdg7a98sd7g9a87dg',
-  description:
-    'This is a story of a great battle as a strange animal comes out of his home',
-  video_thumbnail: 'asdgasdgasdg',
-  title: 'The Animal that Comes Out of The Whole',
-  video_id: 'asd8ga7s98a7sgd',
-};
-
 // A type that helps represent expected response body from the GET /videos request
 // - It is assumed that GET /videos request will return an array of
 //   VideoPlaceholderFromAPI objects
