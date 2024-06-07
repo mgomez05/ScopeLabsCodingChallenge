@@ -78,7 +78,9 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
   return (
     <div>
       {/* Button to Show the Comments Section */}
-      <Button onClick={onShowCommentsButtonClicked}>Show Comments</Button>
+      <div className='flex justify-center'>
+        <Button onClick={onShowCommentsButtonClicked}>Show Comments</Button>
+      </div>
 
       {/* If comments were retrieved from the server (i.e. comments !== null), 
           show all the comments */}
