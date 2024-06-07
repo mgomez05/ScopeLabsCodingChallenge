@@ -4,16 +4,19 @@ export const SAMPLE_VIDEO_PATH = 'SampleVideo_1280x720_1mb.mp4';
 
 export const EXAMPLE_COMMENTS = [
   {
-    commentAuthor: 'Johnny Appleseed',
-    commentText: 'This is a great video!',
+    user_id: 'Johnny Appleseed',
+    content: 'This is a great video!',
+    video_id: 'video_1',
   },
   {
-    commentAuthor: 'Jane Doe',
-    commentText: 'I love this video!',
+    user_id: 'Jane Doe',
+    content: 'I love this video!',
+    video_id: 'video_1',
   },
   {
-    commentAuthor: 'John Smith',
-    commentText: 'This video is amazing!',
+    user_id: 'John Smith',
+    content: 'This video is amazing!',
+    video_id: 'video_1',
   },
 ];
 
