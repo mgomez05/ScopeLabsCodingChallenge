@@ -23,9 +23,9 @@ export default function Home() {
           setShouldShowCreateVideoForm(!shouldShowCreateVideoForm);
         }}
       />
-      <div className='h-full'>
+      <div className='h-full p-4'>
         {/* Video Gallery */}
-        <div className='p-4 max-h-[750px] overflow-y-auto'>
+        <div className='max-h-[750px] overflow-y-auto'>
           <VideoGallery
             onVideoClick={(videoId) => {
               router.push({
@@ -40,7 +40,12 @@ export default function Home() {
 
         {/* Show/Hide the Create Video Form when 
             the user clicks on the Upload button in the header */}
-        {shouldShowCreateVideoForm && <CreateVideoButton />}
+        {shouldShowCreateVideoForm && (
+          <div className='mt-4'>
+            {' '}
+            <CreateVideoButton />
+          </div>
+        )}
       </div>
     </>
   );
