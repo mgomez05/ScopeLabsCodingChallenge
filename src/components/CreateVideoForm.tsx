@@ -82,7 +82,7 @@ const CreateVideoForm: React.FC = () => {
 
       {/* Video File Upload Input */}
       <p className='text-lg font-bold'>Upload the Video</p>
-      <input type='file' onChange={handleFileInputChange} />
+      <input className='mb-2' type='file' onChange={handleFileInputChange} />
 
       {/* Submit Button */}
       <Button onClick={onSubmitButtonClicked}>Submit</Button>
