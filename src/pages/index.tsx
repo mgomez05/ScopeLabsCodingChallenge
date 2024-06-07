@@ -11,13 +11,16 @@ export default function Home() {
 
   const { allVideos } = useFetchVideos();
 
+  const [shouldShowCreateVideoForm, setShouldShowCreateVideoForm] =
+    React.useState(false);
+
   return (
     <>
       <LearnwellHeader
         leftSideText='Check out our videos!'
         buttonText='Upload'
         onButtonClick={() => {
-          console.log('Upload button clicked');
+          setShouldShowCreateVideoForm(!shouldShowCreateVideoForm);
         }}
       />
       <div className='h-full'>
@@ -35,8 +38,9 @@ export default function Home() {
           />
         </div>
 
-        {/* Create Video Form */}
-        <CreateVideoButton />
+        {/* Show/Hide the Create Video Form when 
+            the user clicks on the Upload button in the header */}
+        {shouldShowCreateVideoForm && <CreateVideoButton />}
       </div>
     </>
   );
