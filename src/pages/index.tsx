@@ -3,7 +3,7 @@ import React from 'react';
 import LearnwellHeader from '@/components/LearnwellHeader';
 import { useRouter } from 'next/router';
 
-import useFetchVideos from '@/components/hooks/useFetchVideos';
+import useFetchVideos from '@/hooks/useFetchVideos';
 import CreateVideoForm from '@/components/CreateVideoForm';
 
 export default function Home() {

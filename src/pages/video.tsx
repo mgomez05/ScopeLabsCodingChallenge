@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import { useRouter } from 'next/router';
-import useFetchVideos from '@/components/hooks/useFetchVideos';
+import useFetchVideos from '@/hooks/useFetchVideos';
 
 // The expected data structure for a single video retrieved
 // from the GET /videos/single request
