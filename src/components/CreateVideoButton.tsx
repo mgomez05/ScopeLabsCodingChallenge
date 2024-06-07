@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
+import Button from './Button';
 
 const CreateVideoButton: React.FC = () => {
   const [fileAsBase64String, setFileAsBase64String] = useState<
@@ -82,12 +83,7 @@ const CreateVideoButton: React.FC = () => {
       <input type='file' onChange={handleFileInputChange} />
 
       {/* Submit Button */}
-      <button
-        className='bg-white border border-black rounded-lg'
-        onClick={onSubmitButtonClicked}
-      >
-        Submit
-      </button>
+      <Button onClick={onSubmitButtonClicked}>Submit</Button>
 
       {/* Error Message */}
       {errorMessage && <p className='text-center'>{errorMessage}</p>}
