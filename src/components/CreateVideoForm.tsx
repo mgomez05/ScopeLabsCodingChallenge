@@ -62,6 +62,7 @@ const CreateVideoForm: React.FC = () => {
       {/* Video Title Input */}
       <p>Video Title</p>
       <input
+        className='px-6 py-3 bg-black-opacity-10-percent rounded-3xl'
         value={videoTitle}
         onChange={(event: ChangeEvent<HTMLInputElement>) =>
           setVideoTitle(event.target.value)
@@ -72,6 +73,7 @@ const CreateVideoForm: React.FC = () => {
       {/* Video Description Input */}
       <p>Video Description</p>
       <textarea
+        className='h-[100px] px-6 py-3 bg-black-opacity-10-percent rounded-3xl resize-none'
         value={videoDescription}
         onChange={(event: ChangeEvent<HTMLTextAreaElement>) =>
           setVideoDescription(event.target.value)
