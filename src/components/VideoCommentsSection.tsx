@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import VideoCommentList from './VideoCommentList';
 import { EXAMPLE_COMMENTS } from './VideoCard';
 import axios from 'axios';
+import Button from './Button';
 
 interface VideoCommentsSectionProps {
   video_id: string;
@@ -76,12 +77,7 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
   return (
     <div>
       {/* Button to Show the Comments Section */}
-      <button
-        className='border border-black rounded-lg py-2 px-2'
-        onClick={onShowCommentsButtonClicked}
-      >
-        Show Comments
-      </button>
+      <Button onClick={onShowCommentsButtonClicked}>Show Comments</Button>
 
       {/* If comments were retrieved from the server (i.e. comments !== null), 
           show all the comments */}
