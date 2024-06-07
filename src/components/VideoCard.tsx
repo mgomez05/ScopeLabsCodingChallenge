@@ -15,7 +15,7 @@ export type VideoMetaData = {
   video_id: string;
 };
 
-interface VideoCardProps {
+export interface VideoCardProps {
   videoMetaData: VideoMetaData;
   videoDataURI?: string;
 }
