@@ -91,11 +91,11 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
 
       {/* If we are currently loading comments from the server, 
           show a loading indicator */}
-      {isLoadingComments && <p>Loading Comments...</p>}
+      {isLoadingComments && <p className='text-center'>Loading Comments...</p>}
 
       {/* If there was an error retrieving comments from the server, 
           show an error message */}
-      {errorMessage && <p className='text-red-600'>{errorMessage}</p>}
+      {errorMessage && <p className='text-center'>{errorMessage}</p>}
     </div>
   );
 };
