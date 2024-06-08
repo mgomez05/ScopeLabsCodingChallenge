@@ -80,7 +80,7 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
       {/* Button to Show the Comments Section 
          - Only show the button if comments haven't been loaded yet*/}
       {!comments && (
-        <div className='flex justify-center'>
+        <div className='flex justify-center mb-3'>
           <Button onClick={onShowCommentsButtonClicked}>Show Comments</Button>
         </div>
       )}
