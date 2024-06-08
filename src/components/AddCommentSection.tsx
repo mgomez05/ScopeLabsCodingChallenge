@@ -1,9 +1,11 @@
 import React, { ChangeEvent, useState } from 'react';
 import Button from './Button';
 
-type AddCommentSectionProps = {};
+type AddCommentSectionProps = {
+  video_id: string;
+};
 
-const AddCommentSection: React.FC<AddCommentSectionProps> = () => {
+const AddCommentSection: React.FC<AddCommentSectionProps> = ({ video_id }) => {
   const [newCommentText, setNewCommentText] = useState<string>('');
 
   return (

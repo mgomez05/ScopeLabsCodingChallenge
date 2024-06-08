@@ -79,7 +79,7 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
   return (
     <div>
       {/* Add a Comment Input Field and Button */}
-      <AddCommentSection />
+      <AddCommentSection video_id={video_id} />
 
       {/* Button to Show the Comments Section 
          - Only show the button if comments haven't been loaded yet*/}
