@@ -81,6 +81,7 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
       {/* Add a Comment Input Field and Button */}
       <AddCommentSection
         video_id={video_id}
+        // When a comment is successfully sent, refresh the comments list
         onCommentSentSuccessfully={() => fetchCommentsFromServer()}
       />
 
