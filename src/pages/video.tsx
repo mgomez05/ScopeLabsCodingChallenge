@@ -65,7 +65,7 @@ export default function VideoPage() {
   }, [video_id]);
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col max-w-[2100px]'>
       {/* Page Header */}
       <LearnwellHeader
         leftSideText='Video View'
