@@ -1,0 +1,142 @@
+Take Home Assessment: 
+Educational Video Player
+
+Purpose
+This task is designed to:
+- showcase your skills in web development
+- your ability to create a user-friendly and informative UI
+- the organization and structure of code you write from scratch. 
+
+This problem is left intentionally vague and open-ended in many regards
+- at Scope Labs
+    - you will not always be given exact, precise, and detailed specifications for the
+functionality you will be implementing. 
+    - You will often be responsible for making reasonable design decisions, and determining the precise spec 
+      for your work.
+
+
+The Problem
+- You are a software engineer
+- You've been hired by an EdTech company 
+- They want you to develop a simple web application that:
+   - allows users to create, comment on, and watch educational videos
+   - interacts with the given backend API and provide a seamless and engaging experience for users
+   - The design and UI are up to you to create.
+Requirements
+- Platform and Technology: React or Next.js as the primary frontend framework
+- User Interface: 
+   - Design an interface that:
+      - is intuitive 
+      - is visually appealing
+      - considers the educational context
+- Use this branding:     
+   - [insert link here] 
+   - If you would like a Figma file for guidance / inspiration, please reach out to cory@scopelabs.com.
+- API Integration: We have set up a very basic server with documentation
+   - Use your first and last name snake case as your user_id for creating video objects 
+      - (e.g. John Smith: john_smith)
+   - Use any fake user_id you would like when making comments
+   - You can upload any example video URLs (preferably .mp4 files).
+
+1. Show a list of videos:
+  - We show the videos horizontally centered on the screen, and you can scroll down to see more
+    - When the screen first loads, we call GET /videos 
+       - On success, we render all the videos in the list
+          - Assume that videos are in the following format (same as in POST, except there is new video_id) 
+            {
+               "user_id": "string",
+               "description": "string",
+               "image_thumbnail": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA...
+               "title": "string"
+               "video_id": string
+            }
+          - Each video shown will be shown in a rectangle (a white card)
+             - Show the Title centered at the top in bold
+             - Show the video author (user_id) underneath the title
+             - Show the video and description in a horizontal container 
+                - Show the video on the left 
+                   - The video will look render the imagge_thumbnail with the word "play" on it 
+                   - Once the user clicks on the word "play", we will get
+                - Show the description on the right 
+
+             - Show a button called "Comments" that allows the user to view the 
+               comments for the video by adding a vertical area below the video 
+               and description container 
+                   - On click, calls GET /videos/comments?video_id=${video_id} and expands vertical area 
+                     of div 
+                   - If success
+                      - If 1 or more videos, we show the comments in a vertical list 
+                        - comments will look like this JSON and be shown a la YouTube, but simpler: 
+                        - {
+                            user_id: string 
+                            video_id: string 
+                            comment_text: string 
+                            timestamp: string 
+                          }
+                      - If no videos, we say "There are no comments yet for this video"
+                      - Show a button saying "add comment" with a textbox next to it
+                         - on click 
+                            - if there's no text in the comment, it shows a red error message
+                            - it calls POST videos/comments with body 
+                            - { 
+                                video_id: string
+                                content: string
+                                user_id: string
+                              }
+                              - on success - "You commented on the video!"
+                              - on failure - "There was a problem sending your comment, please try again later"
+
+                   - If failure, we say "error getting the comments for this list"
+       - On failure, we say "there was an error retrieving the videos from the server. Please refresh and try again later"
+  - There is a create new videos button centered at the bottom of the screen 
+     - When it gets clicked, we show a small form with fields corresponding to the corresponding (we have an upload video file button)
+       POST body and a submit button
+        - {
+            "user_id": "string",
+            "description": "string",
+            "video_file": ""data:video/mp4;base64,AAAAHGZ0e...",
+            "title": "string"
+          }
+        - If you click the submit button, shows an error if any fields are not filled out 
+        - Otherwise calls POST /videos
+           - On success, we show a green success message in green
+           - If an error occurs, we show red text saying there was an error uploading a video
+App Functionality: The website must have the following capabilities:
+   ● Show a list of videos
+      - allow users to select a video from the list.
+   ● Allow the user to create a new video object with: 
+      - title
+      - description
+      - video URL.
+   ● comment
+      - Allow user to comment on a video 
+      - Let users view comments from other users.
+         - ??? How to do this?
+   ● Open the videos in full screen with full playback functionality.
+      - assuming this does not include:
+         - closed captions
+         - Quality Selection: Change the resolution or quality of the video stream.
+         - NOPE Picture-in-Picture Mode (this is actually included apparently)
+   ● DONE Include options for adjusting playback speed and volume.
+      - Use html5 video
+
+
+The Solution
+  - The aboveoutlines the general functionalities that the application must be able to handle
+  - It hwever, intentionally does not provide specifications 
+      - those specifications, as well as general system design and organization, are up to you. 
+  - An ideal solution will: 
+     - follow best practices for componentization and state management, 
+     - be well-organized,
+     - be well-documented/commented and easy to understand by other engineers.
+
+Submission
+   - Upload your solution to GitHub
+   - Email the GitHub link and optional Loom link to cory@scopelabs.com
+   - Include a README in the GitHub repo with the following:
+      - An overview of your solution and its features.
+      - Instructions on how to build and run the application on the web.
+      - Screenshots of the platform.
+      - Any other necessary information to test the application.
+   - optional
+      - Submit a Loom video explaining your approach to the problem 
