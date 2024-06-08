@@ -22,15 +22,24 @@ This web application includes 2 pages:
 
 - Home Page
 
-  - Clicking on any of the videos in the gallery brings you to 'Single Video Page' for that video
+  - Clicking on any of the videos in the gallery brings you to tne 'Single Video Page' for that video
   - Clicking on the Upload button in the top right corner shows an Upload Video Form at the bottom of the screen
+    - The Upload Video Form allows you upload a new video with the video file, title, and description
+      of your choice.
+    - Clicking the Submit button on the Upload Video form will attempt to send the video to the server with the details provided
+      - The form will show a success message if sending a video to the server succeeds
+      - The form will show an error message if sending a video to the server failed
+    - The form also prevents users from sending a video to the server until all fields are filled out, showing error messages indicating which form element is preventing the user from proceeding
 
 - Single Video Page
 
   - Shows a main video on the left, and a vertical video list on the right
     - Clicking on any of the videos in the video list brings you to 'Single Video Page'
       for that video
-  - Allows users to view comments and make comments on the main video
+  - Allows users to view comments on the main video by clicking on the Show Comments button
+    - If comments could not be retrieved, it shows an error message
+  - Allows users to add comments for the video
+    - Shows error or success messages depending on whether the comment could be successfully sent to the server
   - Clicking on the Home button in the top right corner brings you back to the Home Page
 
   Here are some pictures of the website, with dummy data used for the video list and video gallery being shown
