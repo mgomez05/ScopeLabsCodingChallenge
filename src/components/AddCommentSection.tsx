@@ -9,9 +9,13 @@ const GENERIC_COMMENT_ERROR_MESSAGE =
 
 type AddCommentSectionProps = {
   video_id: string;
+  onCommentSentSuccessfully: () => void;
 };
 
-const AddCommentSection: React.FC<AddCommentSectionProps> = ({ video_id }) => {
+const AddCommentSection: React.FC<AddCommentSectionProps> = ({
+  video_id,
+  onCommentSentSuccessfully,
+}) => {
   const [newCommentText, setNewCommentText] = useState<string>('');
 
   const [errorMessage, setErrorMessage] = useState<string>('');
@@ -40,6 +44,10 @@ const AddCommentSection: React.FC<AddCommentSectionProps> = ({ video_id }) => {
 
         // Reset the comment textbox
         setNewCommentText('');
+
+        // Tell the parent component that the comment was sent successfully
+        // so we can refresh the comments on the page to include the newly sent
+        onCommentSentSuccessfully();
       } else {
         setErrorMessage(GENERIC_COMMENT_ERROR_MESSAGE);
         console.error(
