@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState } from 'react';
 import VideoCommentList from './VideoCommentList';
 import axios from 'axios';
 import Button from './Button';
+import AddCommentSection from './AddCommentSection';
 
 interface VideoCommentsSectionProps {
   video_id: string;
@@ -37,8 +38,6 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
   const [comments, setComments] = useState<GetVideoCommentsResponse | null>(
     null
   );
-
-  const [newCommentText, setNewCommentText] = useState<string>('');
 
   const onShowCommentsButtonClicked = async () => {
     // Reset the error message before we fetch the comments
@@ -80,26 +79,7 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
   return (
     <div>
       {/* Add a Comment Input Field and Button */}
-      <div className='flex flex-row justify-end px-2'>
-        <input
-          type='text'
-          placeholder='Add a comment...'
-          className='w-full px-6 py-3 bg-black-opacity-10-percent rounded-3xl'
-          value={newCommentText}
-          onChange={(event: ChangeEvent<HTMLInputElement>) =>
-            setNewCommentText(event.target.value)
-          }
-        />
-        <div className=''>
-          <Button
-            onClick={() => {
-              console.log('you clicked a button');
-            }}
-          >
-            Comment
-          </Button>
-        </div>
-      </div>
+      <AddCommentSection />
 
       {/* Button to Show the Comments Section 
          - Only show the button if comments haven't been loaded yet*/}
