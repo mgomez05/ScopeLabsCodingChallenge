@@ -16,6 +16,24 @@ This my submission for the Scope Labs Coding Assessment, which tasks the user wi
     - Quality Selection: Change the resolution or quality of the video stream.
 - Include options for adjusting playback speed and volume.
 
+The project includes 2 pages:
+
+- Home Page
+  - Clicking on any of the videos in the gallery brings you to 'Single Video Page' for that video
+  - Clicking on the Upload button in the top right corner shows an Upload Video Form at the bottom of the screen
+- Single Video Page
+
+  - Shows a main video on the left, and a vertical video list on the right
+    - Clicking on any of the videos in the video list brings you to 'Single Video Page'
+      for that video
+  - Allows users to view comments and make comments on the main video
+  - Clicking on the Home button in the top right corner brings you back to the Home Page
+
+  Here are some pictures of the website, with dummy data used for the video list and video gallery being shown
+
+  ![Home Page Screenshot](.\screenshots\ScopeLabsCodingChallenge_HomePage.PNG)
+  ![Single Video Page Screenshot](.\screenshots\ScopeLabsCodingChallenge_SingleVideoPage.PNG)
+
 ## Project Tech Stack
 
 - This is a [Next.js](https://nextjs.org/) and React web application, bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)
