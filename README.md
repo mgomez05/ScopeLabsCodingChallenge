@@ -24,7 +24,6 @@ This web application includes 2 pages:
 
   - Clicking on any of the videos in the gallery brings you to 'Single Video Page' for that video
   - Clicking on the Upload button in the top right corner shows an Upload Video Form at the bottom of the screen
-    ![Home Page Screenshot](./screenshots/ScopeLabsCodingChallenge_HomePage.PNG)
 
 - Single Video Page
 
@@ -36,7 +35,10 @@ This web application includes 2 pages:
 
   Here are some pictures of the website, with dummy data used for the video list and video gallery being shown
 
-  ![Single Video Page Screenshot](./screenshots/ScopeLabsCodingChallenge_SingleVideoPage.PNG)
+**Home Page**
+![Home Page Screenshot](./screenshots/ScopeLabsCodingChallenge_HomePage.PNG)
+**Single Video Page**
+![Single Video Page Screenshot](./screenshots/ScopeLabsCodingChallenge_SingleVideoPage.PNG)
 
 ## Project Tech Stack
 
