@@ -11,7 +11,7 @@ const Button: React.FC<ButtonProps> = ({ onClick, children, disabled }) => {
     ? 'bg-learnwell-blue-light'
     : 'bg-learnwell-blue';
 
-  const cursorHover = disabled ? 'cursor-none' : 'cursor-pointer';
+  const cursorHover = disabled ? 'cursor-normal' : 'cursor-pointer';
 
   return (
     <button
