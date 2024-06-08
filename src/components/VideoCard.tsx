@@ -27,10 +27,14 @@ const VideoCard: React.FC<VideoCardProps> = ({
   showVideoComments,
 }) => {
   // If we have a videoDataURI from the server, show the video
+  // - We include all 3 HTML5-supported video formats in case
+  //   the video is not in mp4 format
   // Otherwise, show the video thumbnail
   const videoCardContent = videoDataURI ? (
     <video controls className='rounded-lg'>
       <source src={videoDataURI} type='video/mp4' />
+      <source src={videoDataURI} type='video/ogg' />
+      <source src={videoDataURI} type='video/webm' />
     </video>
   ) : (
     // Show the video_thumbnail provided by the server if it exists,
