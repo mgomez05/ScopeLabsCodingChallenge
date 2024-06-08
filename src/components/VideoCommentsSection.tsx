@@ -77,10 +77,28 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
 
   return (
     <div>
+      {/* Add a Comment Input Field and Button */}
+      <div className='flex flex-row justify-end px-2'>
+        <input
+          type='text'
+          placeholder='Add a comment...'
+          className='w-full px-6 py-3 bg-black-opacity-10-percent rounded-3xl'
+        />
+        <div className=''>
+          <Button
+            onClick={() => {
+              console.log('you clicked a button');
+            }}
+          >
+            Comment
+          </Button>
+        </div>
+      </div>
+
       {/* Button to Show the Comments Section 
          - Only show the button if comments haven't been loaded yet*/}
       {!comments && (
-        <div className='flex justify-center mb-3'>
+        <div className='flex justify-center my-3'>
           <Button onClick={onShowCommentsButtonClicked}>Show Comments</Button>
         </div>
       )}
