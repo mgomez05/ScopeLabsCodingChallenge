@@ -69,7 +69,12 @@ const AddCommentSection: React.FC<AddCommentSectionProps> = ({ video_id }) => {
           }
         />
         <div className='ml-1'>
-          <Button onClick={() => onCommentButtonClicked()}>Comment</Button>
+          <Button
+            onClick={() => onCommentButtonClicked()}
+            disabled={!newCommentText}
+          >
+            Comment
+          </Button>
         </div>
       </div>
       {errorMessage && <p className='text-center'>{errorMessage}</p>}
