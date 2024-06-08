@@ -31,8 +31,8 @@ The project includes 2 pages:
 
   Here are some pictures of the website, with dummy data used for the video list and video gallery being shown
 
-  ![Home Page Screenshot](.\screenshots\ScopeLabsCodingChallenge_HomePage.PNG)
-  ![Single Video Page Screenshot](.\screenshots\ScopeLabsCodingChallenge_SingleVideoPage.PNG)
+  ![Home Page Screenshot](./screenshots/ScopeLabsCodingChallenge_HomePage.PNG)
+  ![Single Video Page Screenshot](./screenshots/ScopeLabsCodingChallenge_SingleVideoPage.PNG)
 
 ## Project Tech Stack
 
