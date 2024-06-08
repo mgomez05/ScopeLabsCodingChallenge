@@ -16,11 +16,16 @@ This my submission for the Scope Labs Coding Assessment, which tasks the user wi
     - Quality Selection: Change the resolution or quality of the video stream.
 - Include options for adjusting playback speed and volume.
 
-The project includes 2 pages:
+## Project Structure
+
+This web application includes 2 pages:
 
 - Home Page
+
   - Clicking on any of the videos in the gallery brings you to 'Single Video Page' for that video
   - Clicking on the Upload button in the top right corner shows an Upload Video Form at the bottom of the screen
+    ![Home Page Screenshot](./screenshots/ScopeLabsCodingChallenge_HomePage.PNG)
+
 - Single Video Page
 
   - Shows a main video on the left, and a vertical video list on the right
@@ -31,7 +36,6 @@ The project includes 2 pages:
 
   Here are some pictures of the website, with dummy data used for the video list and video gallery being shown
 
-  ![Home Page Screenshot](./screenshots/ScopeLabsCodingChallenge_HomePage.PNG)
   ![Single Video Page Screenshot](./screenshots/ScopeLabsCodingChallenge_SingleVideoPage.PNG)
 
 ## Project Tech Stack
