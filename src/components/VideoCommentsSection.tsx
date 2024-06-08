@@ -39,7 +39,7 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
     null
   );
 
-  const onShowCommentsButtonClicked = async () => {
+  const fetchCommentsFromServer = async () => {
     // Reset the error message before we fetch the comments
     setErrorMessage('');
 
@@ -81,14 +81,14 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
       {/* Add a Comment Input Field and Button */}
       <AddCommentSection
         video_id={video_id}
-        onCommentSentSuccessfully={() => onShowCommentsButtonClicked()}
+        onCommentSentSuccessfully={() => fetchCommentsFromServer()}
       />
 
       {/* Button to Show the Comments Section 
          - Only show the button if comments haven't been loaded yet*/}
       {!comments && (
         <div className='flex justify-center my-3'>
-          <Button onClick={onShowCommentsButtonClicked}>Show Comments</Button>
+          <Button onClick={fetchCommentsFromServer}>Show Comments</Button>
         </div>
       )}
 
