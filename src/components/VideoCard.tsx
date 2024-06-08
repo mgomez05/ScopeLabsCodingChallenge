@@ -36,6 +36,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
     // Show the video_thumbnail provided by the server if it exists,
     // otherwise show a placeholder image
     <img
+      className='rounded-lg'
       src={
         videoMetaData.video_thumbnail
           ? videoMetaData.video_thumbnail
