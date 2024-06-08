@@ -15,6 +15,7 @@ const config: Config = {
       },
       colors: {
         'learnwell-blue': '#00B6EF',
+        'learnwell-blue-light': 'rgba(0, 182, 239, 0.5)',
         'black-opacity-10-percent': '#0000001A',
       },
     },
@@ -22,7 +23,8 @@ const config: Config = {
   plugins: [],
   safelist: [
     {
-      pattern: /(text|bg)-(learnwell-blue|black-opacity-10-percent)/,
+      pattern:
+        /(text|bg)-(learnwell-blue|learnwell-blue-light|black-opacity-10-percent)/,
     },
   ],
 };
