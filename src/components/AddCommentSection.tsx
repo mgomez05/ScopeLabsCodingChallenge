@@ -68,7 +68,7 @@ const AddCommentSection: React.FC<AddCommentSectionProps> = ({ video_id }) => {
             setNewCommentText(event.target.value)
           }
         />
-        <div className=''>
+        <div className='ml-1'>
           <Button onClick={() => onCommentButtonClicked()}>Comment</Button>
         </div>
       </div>
