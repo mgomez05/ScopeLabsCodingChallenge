@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import VideoCommentList from './VideoCommentList';
 import axios from 'axios';
 import Button from './Button';
@@ -37,6 +37,8 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
   const [comments, setComments] = useState<GetVideoCommentsResponse | null>(
     null
   );
+
+  const [newCommentText, setNewCommentText] = useState<string>('');
 
   const onShowCommentsButtonClicked = async () => {
     // Reset the error message before we fetch the comments
@@ -83,6 +85,10 @@ const VideoCommentsSection: React.FC<VideoCommentsSectionProps> = ({
           type='text'
           placeholder='Add a comment...'
           className='w-full px-6 py-3 bg-black-opacity-10-percent rounded-3xl'
+          value={newCommentText}
+          onChange={(event: ChangeEvent<HTMLInputElement>) =>
+            setNewCommentText(event.target.value)
+          }
         />
         <div className=''>
           <Button
