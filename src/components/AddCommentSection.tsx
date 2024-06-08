@@ -4,6 +4,8 @@ import axios from 'axios';
 import { ServerVideoComment } from './VideoCommentsSection';
 
 const SOME_OTHER_USER_ID = 'john_smitherson';
+const GENERIC_COMMENT_ERROR_MESSAGE =
+  'There was an error sending your comment, please try again later';
 
 type AddCommentSectionProps = {
   video_id: string;
@@ -11,6 +13,9 @@ type AddCommentSectionProps = {
 
 const AddCommentSection: React.FC<AddCommentSectionProps> = ({ video_id }) => {
   const [newCommentText, setNewCommentText] = useState<string>('');
+
+  const [errorMessage, setErrorMessage] = useState<string>('');
+  const [successMessage, setSuccessMessage] = useState<string>('');
 
   // Attempts to send the comment to the server
   // - If the server gives us a 200 or 201 status code, we show a success message
@@ -22,7 +27,6 @@ const AddCommentSection: React.FC<AddCommentSectionProps> = ({ video_id }) => {
         content: newCommentText,
         video_id: video_id,
       };
-
       const response = await axios.post(
         `/videos/comments`,
         newServerVideoComment
@@ -32,19 +36,19 @@ const AddCommentSection: React.FC<AddCommentSectionProps> = ({ video_id }) => {
       // Otherwise, log an error message and display an error message
       if (response.status == 200 || response.status === 201) {
         // Show a success message
-        //setSuccessMessage('Video has been uploaded successfully!');
+        setSuccessMessage('Your comment has been sent!');
 
         // Reset the comment textbox
         setNewCommentText('');
       } else {
-        // setErrorMessage(ERROR_UPLOADING_VIDEO_TO_SERVER_MESSAGE);
+        setErrorMessage(GENERIC_COMMENT_ERROR_MESSAGE);
         console.error(
           `ERROR: Error adding a comment for the video with id '${video_id}', status code was`,
           response.status
         );
       }
     } catch (error) {
-      //setErrorMessage(ERROR_UPLOADING_VIDEO_TO_SERVER_MESSAGE);
+      setErrorMessage(GENERIC_COMMENT_ERROR_MESSAGE);
       console.error(
         `ERROR: Error adding a comment for the video with id '${video_id}', here's the error:`,
         error
@@ -53,19 +57,23 @@ const AddCommentSection: React.FC<AddCommentSectionProps> = ({ video_id }) => {
   };
 
   return (
-    <div className='flex flex-row justify-end px-2'>
-      <input
-        type='text'
-        placeholder='Add a comment...'
-        className='w-full px-6 py-3 bg-black-opacity-10-percent rounded-3xl'
-        value={newCommentText}
-        onChange={(event: ChangeEvent<HTMLInputElement>) =>
-          setNewCommentText(event.target.value)
-        }
-      />
-      <div className=''>
-        <Button onClick={() => onCommentButtonClicked()}>Comment</Button>
+    <div className='flex flex-col space-y-2'>
+      <div className='flex flex-row justify-end px-2'>
+        <input
+          type='text'
+          placeholder='Add a comment...'
+          className='w-full px-6 py-3 bg-black-opacity-10-percent rounded-3xl'
+          value={newCommentText}
+          onChange={(event: ChangeEvent<HTMLInputElement>) =>
+            setNewCommentText(event.target.value)
+          }
+        />
+        <div className=''>
+          <Button onClick={() => onCommentButtonClicked()}>Comment</Button>
+        </div>
       </div>
+      {errorMessage && <p className='text-center'>{errorMessage}</p>}
+      {successMessage && <p className='text-center'>{successMessage}</p>}
     </div>
   );
 };
