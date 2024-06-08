@@ -16,6 +16,12 @@ This my submission for the Scope Labs Coding Assessment, which tasks the user wi
     - Quality Selection: Change the resolution or quality of the video stream.
 - Include options for adjusting playback speed and volume.
 
+Additionally, this website needed to be designed to interact with a basic server provided by the Scope Labs team. Scope Labs provided the spec for their API (https://take-home-assessment-423502.uc.r.appspot.com/docs#/videos/)
+
+We were also allowed to use branding files and optionally request a figma file as inspiration for the website. I used both of these resources significantly in my implementation.
+
+In general, Scope Labs instructed us to make reasonable assumptions and design decisions based on the project requirements provided, with the understanding that this challenge would help exemplify our ability to work in an environment with only some of the necessary informatio provided.
+
 ## Project Structure
 
 This web application includes 2 pages:
